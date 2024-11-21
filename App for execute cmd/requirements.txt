@@ -1,0 +1,3 @@
+pip install psutil
+pip install pycopy-webbrowser
+pip install Pillow
