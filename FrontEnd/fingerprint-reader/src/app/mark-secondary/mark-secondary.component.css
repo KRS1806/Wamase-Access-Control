@@ -1,0 +1,87 @@
+.background-image {
+    background: url('../assets/image/huella4.jpeg') no-repeat center center fixed;
+    /*background: linear-gradient(135deg, #2c5ffa, #0a0a9c, #030356);*/
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.card {
+    box-shadow: 0px 0px 3px #03220a;
+    width: 330px;
+    height: 305px;
+    zoom: 1.3;
+}
+
+.container_radios .radio_in-out {
+    width: 30px;
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+.btn-square {
+    width: auto; /* El ancho se ajusta automáticamente según el contenido */
+    height: 45px; /* Ajusta la altura deseada */
+    padding: 0; /* Elimina el padding para mantener la forma cuadrada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px; /* Ajusta el tamaño del texto según sea necesario */
+    min-width: 100px; /* Ajusta el ancho mínimo si es necesario */
+}
+
+.container_radios {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+}
+
+.form-check {
+    display: flex;
+     align-items: center; /* Alinea verticalmente los elementos */
+     margin-right: 20px; /* Espacio de 20px entre los radios */
+}
+
+.form-check-label {
+     margin-left: -1px; /* Espacio entre el radio y el texto */
+}
+
+.button-container {
+     display: flex; /* Utiliza flexbox para alinear los elementos en una fila */
+     justify-content: space-around; /* Distribuye el espacio entre los elementos */
+     margin-top: 20px; /* Margen superior para separar del contenido superior */
+}
+
+.btn-custom {
+    background-color: #2ad230; /* Color verde personalizado */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    
+}
+
+.btn-custom-danger {
+    background-color: #f21c0c; /* Color rojo personalizado */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+}
+
+.btn-custom:hover, .btn-custom-danger:hover {
+    opacity: 0.8; /* Efecto de opacidad al pasar el mouse */
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.shadow-success {
+    box-shadow: 0 0 10px  rgba(0, 255, 0, 0.9);
+}
+
+.shadow-danger {
+    box-shadow: 0 0 10px  rgba(255, 0, 0, 0.9);
+}
+

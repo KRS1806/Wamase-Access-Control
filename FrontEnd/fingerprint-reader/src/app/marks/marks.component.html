@@ -1,0 +1,63 @@
+<section class="d-flex justify-content-center align-items-center m-auto background-image flex-column" style="height: auto; min-height: 100dvh;"> 
+  <div class="container">
+      <div class="d-flex flex-column justify-content-center align-items-center ">
+        <h1 class="mt-2" >Marcas registradas</h1>
+        <div *ngIf="message" [ngClass]="{'alert': true, 'alert-danger': messageType === 'error', 'alert-success': messageType === 'success'}" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()"></button>
+      </div>
+          
+      <div class="mt-4 d-flex align-items-center">
+        <label for="monthSelect" class="form-label" style="min-width: 150px; font-style: oblique;">Selecciona un mes:</label>
+        <select (change)="onMonthChange($event)" [value]="selectedMonth" class="form-select">
+            <option *ngFor="let month of months" [value]="month.value" [selected]="month.value === selectedMonth">{{ month.name }}</option>
+        </select>
+      </div>
+          
+      <div class="mt-4 d-flex align-items-center">
+        <label for="searchInput" class="form-label me-3" style="min-width: 150px; font-style: oblique;">Buscar empleado:</label>
+        <input type="text" id="searchInput" class="form-control" style="min-width: 200px;" #UserInput placeholder="Cédula del trabajador">
+        <button (click)="employeeName(UserInput.value)" class="btn btn-primary ms-3">Buscar</button>
+      </div>
+      
+      <div class="row mt-4 justify-content-center">
+        <div class="col-md-4 d-flex justify-content-center" *ngFor="let mark of marks">
+          <div class="card d-flex flex-column justify-content-center align-items-center text-center my-4" style="width: 60rem; height: auto;">
+            <div class="card-body my-3">
+              <p>
+                <a class="text-decoration-none" style="color: black;">
+                  <span class="fw-bold">{{ mark.name }} {{ mark.last_name }} - {{ mark.user }}</span>
+                </a> 
+                en {{ mark.month }} registro
+                <span class="fw-bold">{{ mark.total_marks }}</span> marcas.
+              </p>
+              <div class="btn-group">
+                <button class="btn btn-outline-primary" (click)="getAllInformation(mark.user)">Reporte</button>
+                <a (click)="sendInfoModify(mark.user)" class="btn btn-outline-primary x-2">Modificar </a>
+                <button type="submit" (click)="deleteUserView(mark.user)" class="btn btn-outline-primary">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4 justify-content-center" *ngIf="admins.length > 0">
+        <div class="col-md-4 d-flex justify-content-center" *ngFor="let admin of admins">
+          <div class="card d-flex flex-column justify-content-center align-items-center text-center my-4" style="width: 60rem; height: auto;">
+            <div class="card-body my-3">
+              <p style="font-weight: bold;">Es administrador</p>
+              <p>
+                <span class="">Nombre: <span class="fw-bold">{{ admin.nameAdmin }} {{ admin.last_nameAdmin }}</span></span>
+                <br>
+                <span class="">Usuario: <span class="fw-bold">{{ admin.userAdmin }}</span></span>.
+              </p>
+              <button type="submit" (click)="deleteUserAdminVIEW(admin.userAdmin)" class="btn btn-outline-primary">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>      
+      <div *ngIf="errorMessage" class="alert alert-danger mt-4">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</section>

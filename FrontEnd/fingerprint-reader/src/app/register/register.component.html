@@ -1,0 +1,76 @@
+<section class="d-flex justify-content-center align-items-center m-auto background-image">
+    <div class="form position-relative" style="max-width: 600px; width: 100%;">
+        <div *ngIf="message" [ngClass]="{'alert': true, 'alert-danger': messageType === 'error', 'alert-success': messageType === 'success'}" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()"></button>
+        </div>
+        <div class="card shadow p-3 mb-6 bg-white rounded mt-1" style="width: 100%;">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="card-title mb-0">Información Personal</h5>
+                    <div class="position-relative text-center">
+                        <input type="file" id="photo" class="form-control d-none" (change)="onFileSelected($event)">
+                        <label for="photo" class="position-relative" style="cursor: pointer;">
+                            <img [src]="photoPreviewUrl" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover;">
+                        </label>
+                        <br>
+                        <label for="photo" class="form-label">Seleccionar foto</label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label text-center mb-2 d-block">Nombre</label>
+                        <input type="text" id="name" #nameInput class="form-control mb-3" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="last_name" class="form-label text-center mb-2 d-block">Apellidos</label>
+                        <input type="text" id="last_name" #last_nameInput class="form-control mb-3" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="username" class="form-label text-center mb-2 d-block">Cédula de identidad</label>
+                        <input type="text" id="username" #usernameInput class="form-control mb-3" placeholder="Número de cédula" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="department" class="form-label text-center mb-2 d-block">Departamento</label>
+                        <select id="department" class="form-select mb-3 ps-6 w-100" #departmentInput required>
+                            <option value="Administracion">Administración</option>
+                            <option value="Bodega">Bodega</option>
+                            <option value="Ventas">Ventas</option>
+                            <option value="Seguridad">Seguridad</option>
+                            <option value="Reparto">Reparto</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="salary" class="form-label text-center mb-2 d-block">Salario</label>
+                        <input type="text" id="salary" #salaryInput class="form-control mb-3" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="overtime" class="form-label text-center mb-2 d-block">Valor hora extra</label>
+                        <input type="text" id="overtime" #extrasInput class="form-control mb-3" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="hour" class="form-label text-center mb-2 d-block">Hora de entrada</label>
+                        <input type="time" id="hour" #hourIn class="form-control mb-3" required value="00:00">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="exit" class="form-label text-center mb-2 d-block">Hora de salida</label>
+                        <input type="time" id="exit" #hourOut class="form-control mb-3" required value="00:00">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <button (click)="fn_DeviceInfoAndStartCaptureFP()" class="btn btn-primary mb-3 mr-3" style="margin-right: 30px;">Capturar huella</button>
+                        <button (click)="sendWorker(nameInput.value, last_nameInput.value, usernameInput.value, departmentInput.value, +salaryInput.value, +extrasInput.value, hourIn.value, hourOut.value)" class="btn btn-primary mb-3 btn-lime:hover" style="margin-right: 30px;" [disabled]="isButtonDisabled">Registrar usuario</button>
+                        <a href="/mark/" class="btn btn-primary mb-3">Realizar una marca</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,42 @@
+<section class="d-flex justify-content-center align-items-center m-auto background-image flex-column">
+    <div *ngIf="message" [ngClass]="{'alert': true, 'alert-danger': messageType === 'error', 'alert-success': messageType === 'success'}" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()"></button>
+    </div>
+    <div class="form" style="max-width: 900px;">
+        <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title mb-4 text-center" style="font-style: italic;">Autenticar Usuario</h5>
+                <div class="row mb-3">
+                    <div class="col-md-6 w-100">
+                        <div class="container">
+                            <label for="username" class="form-label mb-2">Usuario</label>
+                        </div>
+                        <input type="text" id="username" #usernameInput class="form-control w-100 text-center" >
+                    </div>
+                </div>         
+                <div class="row mb-3">
+                    <div class="col-md-6 w-100">
+                        <div class="container">
+                            <label for="password" class="form-label">Contraseña</label>
+                        </div>
+                        <input type="password" id="password" #passwordInput class="form-control w-100 text-center">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-outline-primary mx-2" (click)="login(usernameInput.value, passwordInput.value)">Autenticar</button>
+                        <button type="submit" class="btn btn-outline-danger" (click)="logout()">Logout</button>
+                    </div>
+                </div>
+                <div class="btn-group d-flex justify-content-center align-items-center text-center mt-3">
+                 <!-- <a href="/register_admin/" class="btn btn-outline-success">Registrar usuario admin</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

@@ -1,0 +1,41 @@
+.background-image {
+    background: url('../assets/image/reporte.jpg') no-repeat center center fixed;
+       /*background: linear-gradient(135deg, #2c5ffa, #0a0a9c, #030356);*/
+     background-size: cover;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+ }
+ 
+ .card {
+     box-shadow: 0px 0px 3px #03220a;
+     width: 450px;
+     height: auto;
+     zoom: 1.1; 
+     
+ }
+
+
+ .alert {
+    width: 100%;
+    max-width: 500px;
+    margin: 1rem auto;
+  }
+  .datepicker-container {
+    display: flex;
+    gap: 1rem; /* Space between the two date pickers */
+    justify-content: center; /* Center the date pickers horizontally */
+    margin-bottom: 1rem; /* Space below the date pickers */
+  }
+  .datepicker-container .form-group {
+    flex: 1; /* Allow form-group to take available space */
+    max-width: 200px; /* Set a max-width for each date picker */
+  }
+  .form-control {
+    text-align: center;
+  }
+  .text-center {
+    text-align: center;
+  }

@@ -1,0 +1,36 @@
+.background-image {
+  background: url('../assets/image/buscar.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Contenedor para habilitar el desplazamiento horizontal en pantallas pequeñas */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Habilita el desplazamiento suave en iOS */
+}
+
+/* Asegúrate de que la tabla ocupe el 100% del contenedor */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Estilos para mejorar la apariencia en dispositivos móviles */
+@media (max-width: 768px) {
+  .table th, .table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  /* Opcional: puedes ajustar el tamaño de la fuente para mejorar la legibilidad */
+  .table {
+    font-size: 14px;
+  }
+}
+
+

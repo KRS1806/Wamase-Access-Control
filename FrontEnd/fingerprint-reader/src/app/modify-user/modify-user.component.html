@@ -1,0 +1,78 @@
+<section class="d-flex justify-content-center align-items-center m-auto background-image">
+    <div class="form" style="max-width: 600px;">
+        <div *ngIf="message" [ngClass]="{'alert': true, 'alert-danger': messageType === 'error', 'alert-success': messageType === 'success'}" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()"></button>
+        </div>
+        <div class="card shadow p-3 mb-6 bg-white rounded" style="width: 100%;">
+            <div class="card-body">
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="card-title mb-0">Información Personal</h5>
+                    <div class="position-relative text-center">
+                        <input type="file" id="photo" class="form-control d-none" (change)="onFileSelected($event)">
+                        <label for="photo" class="position-relative" style="cursor: pointer;">
+                            <img id="photoPreview" [src]="photoPreviewUrl" class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover;">
+                        </label>
+                        <br>
+                        <label for="photo" class="form-label">Actualizar foto</label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label text-center mb-2 d-block">Nombre</label>
+                        <input type="text" id="name" #nameInput class="form-control mb-3 text justify-content-center" value="{{data.name}}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="last_name" class="form-label text-center mb-2 d-block">Apellidos</label>
+                        <input type="text" id="last_name" #last_nameInput class="form-control mb-3" value="{{data.last_name}}" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="username" class="form-label text-center mb-2 d-block">Usuario</label>
+                        <input type="text" id="username" #usernameInput class="form-control mb-3" value="{{data.user}}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="department" class="form-label text-center mb-2 d-block">Departamento</label>
+                        <select id="department" class="form-select mb-3 ps-6 w-100" #departmentInput required>
+                            
+                            <option value="administracion">Administración</option>
+                            <option value="bodega">Bodega</option>
+                            <option value="ventas">Ventas</option>
+                            <option value="seguridad">Seguridad</option>
+                            <option value="reparto">Reparto</option>
+                        </select>
+                    </div>
+                </div>         
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                    <label for="salary" class="form-label text-center mb-2 d-block">Salario</label>
+                    <input type="text" id="salary" #salaryInput class="form-control mb-3" value="{{data.salary}}" required>
+                    </div>
+                    <div class="col-md-6">
+                    <label for="overtime" class="form-label text-center mb-2 d-block">Valor hora extra</label>
+                    <input type="text" id="overtime" #extrasInput class="form-control mb-3" value="{{data.extras}}" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                    <label for="hourIn" class="form-label text-center mb-2 d-block">Hora de entrada</label>
+                    <input type="time" id="hourIn" #hourInInput class="form-control mb-3" [value]="formatTime(data.hourIn)" required>
+                    </div>
+                    <div class="col-md-6">
+                    <label for="hourOut" class="form-label text-center mb-2 d-block">Hora de salida</label>
+                    <input type="time" id="hourOut" #hourOutInput class="form-control mb-3" [value]="formatTime(data.hourOut)" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                    <button (click)="fn_DeviceInfoAndStartCaptureFP()" class="btn btn-primary mb-3 mr-3" style="margin-right: 30px;">Capturar huella</button>
+                    <button (click)="sendWorker(nameInput.value, last_nameInput.value, usernameInput.value, departmentInput.value, +salaryInput.value, +extrasInput.value, hourInInput.value, hourOutInput.value)" class="btn btn-primary mb-3 btn-lime:hover" style="margin-right: 30px;" [disabled]="isButtonDisabled">Modificar usuario</button>
+                    <a href="/mark/" class="btn btn-primary mb-3 ">Realizar una marca</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

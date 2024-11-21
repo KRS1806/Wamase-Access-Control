@@ -1,0 +1,35 @@
+<section class="d-flex flex-column justify-content-center align-items-center m-auto background-image">
+    <div *ngIf="message" [ngClass]="{'alert': true, 'alert-danger': messageType === 'error', 'alert-success': messageType === 'success'}" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()"></button>
+    </div>
+    
+    <div class="card mt-4">
+        <div class="card-body d-flex flex-column align-items-center text-center">
+            <div class="camera-container mb-4">
+                <video #videoElement class="rounded-circle" autoplay></video>
+            </div>
+            <div class="mb-4">
+                <div class="btn d-flex justify-content-center mt-3">
+                    <button 
+                        type="button" 
+                        class="btn btn-custom me-3 btn-lg" 
+                        id="in_button" 
+                        (click)="setInOutValue('Entrada')" 
+                        [disabled]="isButtonDisabled">
+                        Entrada
+                    </button>
+                    <button 
+                        type="button" 
+                        class="btn btn-custom-danger btn-lg " 
+                        id="out_button" 
+                        (click)="setInOutValue('Salida')" 
+                        [disabled]="isButtonDisabled">
+                        Salida
+                    </button>                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

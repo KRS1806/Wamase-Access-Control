@@ -1,0 +1,38 @@
+<section class="d-flex justify-content-center align-items-center m-auto background-image">
+    <div class="form" style="max-width: 900px;">
+        <div *ngIf="message" [ngClass]="{'alert': true, 'alert-danger': messageType === 'error', 'alert-success': messageType === 'success'}" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()"></button>
+        </div>
+        <div class="card shadow p-3 mb-5 bg-white rounded mt-5" style="width: 100%;">
+            <div class="card-body">
+                <h5 class="card-title mb-4 text-center">Información Personal</h5>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label text-center mb-2 d-block">Nombre</label>
+                        <input type="text" id="name" #nameInput class="form-control mb-3" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="last_name" class="form-label text-center mb-2 d-block">Apellidos</label>
+                        <input type="text" id="last_name" #last_nameInput class="form-control mb-3" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="username" class="form-label text-center mb-2 d-block">Usuario</label>
+                        <input type="text" id="username" #usernameInput class="form-control mb-3" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="password" class="form-label text-center mb-2 d-block">Contraseña</label>
+                        <input type="password" id="password" #passwordInput class="form-control mb-3" required>
+                    </div>
+                </div>         
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <button (click)="sendAdmin(nameInput.value, last_nameInput.value, usernameInput.value, passwordInput.value)" class="btn btn-primary mb-3">Registrar administrador</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

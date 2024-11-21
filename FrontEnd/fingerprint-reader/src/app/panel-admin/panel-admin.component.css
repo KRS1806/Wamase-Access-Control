@@ -1,0 +1,44 @@
+.background-image {
+    background: url('../assets/image/huella4.jpeg') no-repeat center center fixed;
+       /*background: linear-gradient(135deg, #2c5ffa, #0a0a9c, #030356);*/
+     background-size: cover;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+ }
+ 
+ .card {
+     box-shadow: 0px 0px 3px #03220a;
+     width: 350px;
+     height: auto;
+     
+     
+ }
+
+ .container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Esto también lo centrará verticalmente */
+   
+  }
+  
+ 
+  .card {
+    width: 100%;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .btn-group a {
+    margin: 0 10px;
+  }
