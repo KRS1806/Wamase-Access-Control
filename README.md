@@ -6,7 +6,7 @@ This program is for the company Wamase, ubicated in Costa Rica. The function of 
 can mark each entry and exit during the day.
 
 ## Technologies used for this program
-
+<p>
 <a target="_blank">
     <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green"/>
 </a>
@@ -25,7 +25,7 @@ can mark each entry and exit during the day.
 <a target="_blank">
     <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white"/>
 </a>
-
+</p>
 ## ¿Is possible change functions or anything for you?
 
 Yeah, is possible, only you have to contact me to my email [kendallrodri1@gmail.com](kendallrodri1@gmail.com)
